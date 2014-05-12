@@ -4,10 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
- */
-
-/**
  * @author pg027919
  *
  */
@@ -15,17 +11,24 @@ public class convertTwoDimensionalArrayIntoBinaryTree {
 	
 	public static void main(String args[]){
 		
-		int[][] arr = {
+		/*2 elements of nested array act as child parent node so 
+		this program converts inputArr into following binary tree
+		
+							1
+					2				3
+				4		5		6
+		                        
+		*/
+		
+		int[][] inputArr = {
 			{2, 4},
 			{1, 2},
 			{3, 6},
 			{1, 3},
-			{2, 5},
-			{3, 7},
-			{4, 8}
+			{2, 5}
 		};
 		
-		Map<Integer,List<Integer>> lookupMap= createMap(arr);
+		Map<Integer,List<Integer>> lookupMap= createMap(inputArr);
 		
 		System.out.println("hash map: "+lookupMap);
 		
@@ -57,10 +60,8 @@ public class convertTwoDimensionalArrayIntoBinaryTree {
 		for (int key : treeMap.keySet()){
 			valList.addAll(treeMap.get(key));
 		}
-		
 
 		for (int key : treeMap.keySet()){
-
 			if(!valList.contains(key)) 
 				root = key;
 		}
